@@ -36,8 +36,19 @@ function atualizaContentDoPost(id, novoConteudo) {
   const postQueVaiSerAtualizado = pegaPosts().find((post) => {
     return post.id === id;
   });
-  console.log(postQueVaiSerAtualizado);
+  console.log(postQueVaiSerAtualizado)
+  postQueVaiSerAtualizado.content() = novoConteudo
 }
-atualizaContentDoPost(2, "Novo conteudo do post");
+atualizaContentDoPost(1, "Novo conteudo do post")
+console.log(pegaPosts());
 
 // DELETE
+function apagaPost(id){
+    const listaDePostsAtualizada = pegaPosts().filter((postAtual) => {
+        return postAtual.id !== id;
+    })
+    miniTwitter.posts = listaDePostsAtualizada
+
+    console.log(listaDePostsAtualizada);
+}
+apagaPost(1)
